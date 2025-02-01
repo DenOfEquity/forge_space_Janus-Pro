@@ -23,5 +23,7 @@ Model is capable of generating variable height (including > 384px), but changing
 
 I haven't added any form of manual offloading; standard diffusers model offloading or sequential offloading don't work.
 
+---
+example : 384x512
 
-
+![example](https://github.com/user-attachments/assets/96ae122d-70f1-43ea-b5c9-a104474478d1)
