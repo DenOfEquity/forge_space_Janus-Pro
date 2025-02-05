@@ -4,14 +4,14 @@ New Forge only.
 an adaptation of:
 * https://huggingface.co/spaces/deepseek-ai/Janus-Pro-7B
 
-will download ~8GB because it fetches both pytorch model and safetensors model. Don't know why.
+will download ~8GB because it fetches both pytorch model and safetensors model. Don't know why. The 7B model doesn't have this issue.
 
 May need installation of some additional dependencies:
 ```
 attrdict
 ```
 
-I've reworked the UI.
+I've reworked the UI from the original Huggingface Space.  Added automatic saving of generated images, with some infotext included, to webUI `outputs` directory. Name will be `Janus-Pro_{date and time}{batch number}.png`.
 
 Model is capable of generating variable height (including > 384px), but changing width causes distortion.
 
@@ -19,7 +19,7 @@ Model is capable of generating variable height (including > 384px), but changing
 >Install via *Extensions* tab; *Install from URL* sub-tab; use URL of this repo.
 
 >[!TIP]
->You can edit `forge-app.py` line 17 to `use_7B = True` to use the larger model instead, quantized to 8 bit (comment out the two `quantization_config=` if you want), but it is too slow to be usable for me. Download size is 13.8GB.
+>You can edit `forge-app.py` line 20 to `use_7B = True` to use the larger model instead, quantized to 4 bit (comment out the two `quantization_config=` if you want, or change to 8 bit), but t2i is too slow to be usable for me. Multimodal is still OK. Download size is 13.8GB.
 
 I haven't added any form of manual offloading; standard diffusers model offloading or sequential offloading don't work.
 
